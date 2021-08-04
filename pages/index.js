@@ -1,11 +1,21 @@
-import React from "react"
+import { useEffect } from "react"
 import AppBar from '../layouts/appBar'
 
 import Layout from '../layouts/layout'
+import Head from 'next/head'
+
 
 export default function Index() {
+  useEffect(()=> {
+    const language = window.navigator.userLanguage || window.navigator.language;
+    console.log('language', language)
+  }, [])
   return (
     <div>
+       <Head>
+        <title>My page title</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <h2>Layout Example (Index)</h2>
       <p>
         This example adds a property <code>getLayout</code> to your page,
