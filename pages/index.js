@@ -1,6 +1,5 @@
 import React from "react"
 import AppBar from '../layouts/appBar'
-import '@nextcss/reset'
 
 import Layout from '../layouts/layout'
 

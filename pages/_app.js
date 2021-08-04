@@ -1,3 +1,5 @@
+import '@nextcss/reset'
+
 
 export default function MyApp({ Component, pageProps }) {
 
