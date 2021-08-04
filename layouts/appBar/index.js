@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Link from "next/link";
+import TestMenu from '../../components/testMenu'
 
 
 
@@ -57,6 +58,15 @@ export default function ButtonAppBar() {
             <Link href="/items">
               <a>items page</a>
             </Link>
+
+            <TestMenu>
+              
+            </TestMenu>
+
+            <Link href="/transition">
+              <a>transition</a>
+            </Link>
+
 
             {/* <Button color="inherit">Login</Button> */}
           </Toolbar>
