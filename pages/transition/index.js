@@ -7,6 +7,14 @@ import Fade from '@material-ui/core/Fade'
 import Grow from '@material-ui/core/Grow'
 import Slide from '@material-ui/core/Slide'
 import Zoom from '@material-ui/core/Zoom'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+
+
+
+
 
 
 import style from './index.module.sass'
@@ -17,6 +25,10 @@ const TransitionPage = ()=> {
   const [grow, setGrow] = useState(true)
   const [slide, setSlide] = useState(true)
   const [zoom, setZoom] = useState(true)
+
+  const { t, i18n } = useTranslation('transition')
+  const router = useRouter()
+
 
 
   const collapeChange = () => {
@@ -42,7 +54,15 @@ const TransitionPage = ()=> {
 
   return (
     <div className={style.transitionContainer}>
-      <h1>this is transtion page</h1>
+      <h1>{t('page')}</h1>
+      <Link
+            href='/transition'
+            locale={router.locale === 'en' ? 'tw' : 'en'}
+          >
+            <button>
+              xxx
+            </button>
+      </Link>
       <h2>collapse</h2>
       <div>
       {/* <Switch></Switch> */}
@@ -94,6 +114,16 @@ TransitionPage.getLayout = function getLayout(page) {
     </Layout>
   )
  
+}
+
+export async function getStaticProps({ locale }) {
+  console.log('local', locale)
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['transition'])),
+      // Will be passed to the page component as props
+    },
+  };
 }
 
 export default TransitionPage
